@@ -1,3 +1,4 @@
+import random
 # age = 20
 # age2 = 30
 # price = 19.95
@@ -73,22 +74,57 @@
 # if unit == "L":
 #     print("Weight in Kg", weight*0.453)
 
+#Doug's first challenge for me!
+# metal = input("Metal")
+# unit = input("Kg or Lbs")
+# weight = float(input("How many Kg or Lbs"))
+#
+# if unit.lower() == "k" or unit.lower() == "kg":
+#     weight = weight
+# if unit.lower() =="l" or unit.lower() == "lbs":
+#     weight = weight*0.453
+# if metal == "gold" or metal == "au":
+#     print("Price $", weight*1653.90)
+# if metal == "silver" or metal == "ag":
+#     print("Price $", weight*912.76)
 
-metal = input("Metal")
-unit = input("Kg or Lbs")
-weight = float(input("How many Kg or Lbs"))
 
-if unit.lower() == "k" or unit.lower() == "kg":
-    weight = weight
-if unit.lower() =="l" or unit.lower() == "lbs":
-    weight = weight*0.453
-if metal == "gold" or metal == "au":
-    print("Price $", weight*1653.90)
-if metal == "silver" or metal == "ag":
-    print("Price $", weight*912.76)
 
-print("Hello")
 
+#PUZZLE ONE
+#create a number-guessing game
+#have the computer generate a random number, then ask the user to guess
+#give the user three attempts to get the correct number
+#if the user gets it wrong, tell them whether they're too high or too low
+#if the user gets it right, don't ask them again
+# myFirstRandomNumber = random.randint(0, 10)
+
+# Meaghan's Number Guessing Game
+theRandomNumber = random.randint(0, 10)
+userHasWon = False
+print("We are choosing a number. Get ready to guess!")
+Attempt1 = float(input("Attempt 1 - Guess a random number."))
+if Attempt1 == theRandomNumber:
+    print("Yay! You guessed the correct number!")
+    print("The random number was" + str(theRandomNumber))
+    userHasWon = True
+if Attempt1 != theRandomNumber:
+    print("You have guessed incorrectly. You have two tries left.")
+if userHasWon == False:
+    Attempt2 = float(input("Attempt 2 - Guess another random number."))
+    if Attempt2 == theRandomNumber:
+        print("Yay! You guessed the correct number!")
+        print("The random number was" + str(theRandomNumber))
+        userHasWon = True
+    if Attempt2 != theRandomNumber:
+        print("You have guessed incorrectly. You have one try left. May the odds be ever in your favour.")
+if userHasWon == False:
+    Attempt3 = float(input("Attempt 3 - This is your last attempt to guess random number."))
+    if Attempt3 == theRandomNumber:
+        print("Yay! You did it! You guessed the correct number!")
+        print("The random number was" + str(theRandomNumber))
+    if Attempt3 != theRandomNumber:
+        print("Wah, wah, wah... You have guessed incorrectly. Please play again.")
 
 
 
