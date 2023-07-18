@@ -4,11 +4,12 @@
 #I can then reference the libary by using its name
 import random
 import functions
+import numpy
 
 #randint() is a method that generations a random integer
 #the two numbers are a range; it will generate between 0 and 10
 #it will not include 0, but will include 10
-myFirstRandomNumber = random.randint(0, 10)
+# myFirstRandomNumber = random.randint(0, 10)
 
 
 #PUZZLE ONE
@@ -18,18 +19,18 @@ myFirstRandomNumber = random.randint(0, 10)
 #if the user gets it wrong, tell them whether they're too high or too low
 #if the user gets it right, don't ask them again
 
-userHasWon = False
-functions.testFunction()
-functions.testFunction()
-functions.testFunction()
+# userHasWon = False
+# functions.guessTheNumber()
+# functions.guessTheNumber()
+# functions.guessTheNumber()
 
-if userHasWon == False:
+# if userHasWon == False:
     #here we are CALLING the function that is defined in the functions file
-    userHasWon = functions.guessTheNumber(myFirstRandomNumber)
-if userHasWon == False:
-    userHasWon = functions.guessTheNumber(myFirstRandomNumber)
-if userHasWon == False:
-    userHasWon = functions.guessTheNumber(myFirstRandomNumber)
+#     userHasWon = functions.guessTheNumber(myFirstRandomNumber)
+# if userHasWon == False:
+#     userHasWon = functions.guessTheNumber(myFirstRandomNumber)
+# if userHasWon == False:
+#     userHasWon = functions.guessTheNumber(myFirstRandomNumber)
 
 
 
@@ -41,6 +42,48 @@ if userHasWon == False:
 #average the three scores and match it to a letter grade
 #assume the letter grades are: 0-49%: F, 50-59% D, 60-74% C, 75-84% B, 85-100% A
 #output should look like: Schmumu - A - 100
+
+#def means we're starting a function definition
+def getAGrade():
+    while True:
+        grade = input("Please enter a grade: ")
+        if not grade.isnumeric():
+            print("That's not a number!")
+        else:
+            return int(grade)
+
+userName = ''
+# firstGrade = 0 
+# secondGrade = 0
+# thirdGrade = 0
+
+#array is a list of values (any kind of value)
+#arrays have functions append, pop, etc.
+gradeArray = []
+
+#input() is a function that returns the value entered
+userName = input("Please enter your name: ")
+while len(gradeArray) < 3:
+    gradeArray.append(getAGrade())
+
+#calculation
+# gradeAverage = (firstGrade + secondGrade + thirdGrade) / 3
+gradeAverage = numpy.mean(gradeArray)
+letterGrade = ''
+
+#find letter grade
+if gradeAverage >= 0 and gradeAverage <= 49:
+    letterGrade = 'F'
+elif gradeAverage >= 50 and gradeAverage <= 59:
+    letterGrade = 'D'
+elif gradeAverage >= 60 and gradeAverage <= 74:
+    letterGrade = 'C'
+elif gradeAverage >= 75 and gradeAverage <= 84:
+    letterGrade = 'B'
+elif gradeAverage >= 85 and gradeAverage <= 100:
+    letterGrade = 'A'
+
+print(f'Name: {userName} - Grade Average: {round(gradeAverage, 2)} - Letter Grade: {letterGrade}')
 
 
 
